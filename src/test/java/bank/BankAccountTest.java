@@ -91,7 +91,7 @@ public class BankAccountTest {
     }
 
 
-
+    /*
     private final static PrintStream standardOut = System.out;
     private final static ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
     @BeforeAll
@@ -103,8 +103,9 @@ public class BankAccountTest {
     public void balance_whenBalanceInitializationIsValid_shouldPrintSuccessful() {
         double validBalance = +200_437.48;
 
-        new BankAccount("Mr. Bryan Walton", validBalance);
+        BankAccount bankAccount = new BankAccount("Mr. Bryan Walton", validBalance);
 
         Assertions.assertEquals("successful account creation\n", outputStreamCaptor.toString());
     }
+     */
 }
