@@ -2,7 +2,6 @@ package bank;
 
 import exception.AmountOutOfRangeException;
 import exception.NegativeBalanceException;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 
@@ -16,24 +15,19 @@ public class BankAccount {
         this.balance = balance;
 
         checkNegativeBalance();
-        successfulAccountCreation();
     }
 
     public void debit(double amount) {
         if (amount > balance) throw new AmountOutOfRangeException("amount > balance");
-        if (amount < 0) throw new AmountOutOfRangeException("amount < 0");
+        else if (amount <= 0) throw new AmountOutOfRangeException("amount <= 0");
         balance -= amount;
     }
     public void credit(double amount) {
-        if (amount < 0) throw new AmountOutOfRangeException("amount < 0");
+        if (amount <= 0) throw new AmountOutOfRangeException("amount <= 0");
         balance += amount;
     }
 
     private void checkNegativeBalance() {
         if (balance < 0) throw new NegativeBalanceException("negative balance");
-    }
-
-    private void successfulAccountCreation() {
-        System.out.print("successful account creation\n");
     }
 }
