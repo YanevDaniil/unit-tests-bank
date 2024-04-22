@@ -9,19 +9,19 @@ import org.junit.jupiter.api.Test;
 public class BankAccountTest {
 
     @Test
-    public void balance_whenBalanceInitializationIsLessThanZero_shouldThrowNegativeBalance() {
-        double negativeBalance = -999;
-
-        Assertions.assertThrows(NegativeBalanceException.class,
-                () -> new BankAccount("Mr. Bryan Walton", negativeBalance));
-    }
-
-    @Test
     public void balance_whenBalanceInitializationIsValid_shouldSetBalance() {
         double validBalance = 999;      // or double zeroBalance = 0
         BankAccount bankAccount = new BankAccount("Mr. Bryan Walton", validBalance);
 
         Assertions.assertEquals(validBalance, bankAccount.getBalance());
+    }
+
+    @Test
+    public void balance_whenBalanceInitializationIsLessThanZero_shouldThrowNegativeBalance() {
+        double negativeBalance = -999;
+
+        Assertions.assertThrows(NegativeBalanceException.class,
+                () -> new BankAccount("Mr. Bryan Walton", negativeBalance));
     }
 
     @Test
